@@ -1,11 +1,8 @@
-const userRouter  = require('express').Router();
-const { Signup, Login, GetUser, deleteUser, verifyUser } = require("../controllers/authController");
+const {Router} = require('express');
+const { Signup, Login } = require('../controllers/authController');
+const authrouter = Router();
 
-userRouter.post("/signup", Signup);  
-userRouter.post("/login", Login);    
-userRouter.get("/", GetUser);        
-userRouter.delete("/delete/:id", deleteUser); 
-userRouter.get("/verify/:token", verifyUser); 
+authrouter.post('/signup', Signup);
+authrouter.post('/login', Login);
 
-module.exports = userRouter;
-
+module.exports = authrouter;
